@@ -5,28 +5,29 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        // Make a program to read the data of two people, then display the name of the older person
-        Person person1, person2;
-        person1 = new Person();
-        person2 = new Person();
+        // Make a program to read the name and salary of two employees. Then display the average salary of the employees.
+        Employee employee1, employee2;
+        employee1 = new Employee();
+        employee2 = new Employee();
 
-        // First person
-        Console.Write("Dados da primeira pessoa:\nNome: ");
-        person1.Name = Console.ReadLine();
+        double average;
 
-        Console.Write("Idade: ");
-        person1.Age = int.Parse(Console.ReadLine());
+        // First employee
+        Console.Write("Dados do primeira funcionario:\nNome: ");
+        employee1.Name = Console.ReadLine();
 
-        // Second person
-        Console.Write("Dados da segunda pessoa:\nNome: ");
-        person2.Name = Console.ReadLine();
+        Console.Write("Salário: ");
+        employee1.Salary = double.Parse(Console.ReadLine());
 
-        Console.Write("Idade: ");
-        person2.Age = int.Parse(Console.ReadLine());
+        // Second employee
+        Console.Write("Dados do segundo funcionario:\nNome: ");
+        employee2.Name = Console.ReadLine();
 
-        if(person1.Age > person2.Age)
-            Console.WriteLine($"Pessoa mais velha: {person1.Name}");
-        else
-            Console.WriteLine($"Pessoa mais velha: {person2.Name}");
+        Console.Write("Salário: ");
+        employee2.Salary = double.Parse(Console.ReadLine());
+
+        average = (employee1.Salary + employee2.Salary) / 2;
+
+        Console.WriteLine($"Salário médio: " + average.ToString("N2"));
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Course
 {
-    internal class Person
+    internal class Employee
     {
         public string Name;
-        public int Age;
+        public double Salary;
     }
 }
