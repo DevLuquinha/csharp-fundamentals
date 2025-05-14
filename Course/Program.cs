@@ -5,35 +5,28 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Triangle x, y;
+        // Make a program to read the data of two people, then display the name of the older person
+        Person person1, person2;
+        person1 = new Person();
+        person2 = new Person();
 
-        x = new Triangle();
-        y = new Triangle();
+        // First person
+        Console.Write("Dados da primeira pessoa:\nNome: ");
+        person1.Name = Console.ReadLine();
 
-        // Gets the measures of the triangle X
-        Console.WriteLine("Entre com as medidas do triangulo X: ");
-        x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        Console.Write("Idade: ");
+        person1.Age = int.Parse(Console.ReadLine());
 
-        // Gets the measures of the triangle Y 
-        Console.WriteLine("Entre com as medidas do triangulo Y: ");
-        y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-        y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+        // Second person
+        Console.Write("Dados da segunda pessoa:\nNome: ");
+        person2.Name = Console.ReadLine();
 
-        double p = (x.A + x.B + x.C) / 2;
-        double xArea = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
+        Console.Write("Idade: ");
+        person2.Age = int.Parse(Console.ReadLine());
 
-        p = (y.A + y.B + y.C) / 2;
-        double yArea = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
-
-        Console.WriteLine("Área de X = " + xArea.ToString("F4", CultureInfo.InvariantCulture));
-        Console.WriteLine("Área de Y = " + yArea.ToString("F4", CultureInfo.InvariantCulture));
-
-        if (xArea > yArea)
-            Console.WriteLine("Maior área: X");
+        if(person1.Age > person2.Age)
+            Console.WriteLine($"Pessoa mais velha: {person1.Name}");
         else
-            Console.WriteLine("Maior área: Y");
+            Console.WriteLine($"Pessoa mais velha: {person2.Name}");
     }
 }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Course
 {
-    internal class Triangle
+    internal class Person
     {
-        public double A;
-        public double B;
-        public double C;
+        public string Name;
+        public int Age;
     }
 }
