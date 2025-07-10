@@ -18,17 +18,14 @@ internal class Program
         Console.Write("Quantidade no estoque: ");
         product.Quantity = int.Parse(Console.ReadLine()!);
 
-        Console.WriteLine($"\nDados do produto: {product.Name}," +
-            $" $ {product.Price.ToString("F2", CultureInfo.InvariantCulture)}," +
-            $" {product.Quantity} unidades," +
-            $" Total: $ {product.TotalInStock().ToString("F2", CultureInfo.InvariantCulture)}");
+        Console.WriteLine($"\nDados do produto: " + product);
 
         product.AddProduct();
 
-        product.ShowUpdatedData();
+        Console.WriteLine($"\nDados atualizados: " + product);
 
         product.RemoveProduct();
 
-        product.ShowUpdatedData();
+        Console.WriteLine($"\nDados atualizados: " + product);
     }
 }

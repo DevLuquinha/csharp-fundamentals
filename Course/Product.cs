@@ -30,12 +30,15 @@ namespace Course
             Quantity -= int.Parse(Console.ReadLine()!);
         }
 
-        public void ShowUpdatedData()
+        public override string ToString()
         {
-            Console.WriteLine($"\nDados atualizados: {Name}," +
-           $" $ {Price.ToString("F2", CultureInfo.InvariantCulture)}," +
-           $" {Quantity} unidades," +
-           $" Total: $ {TotalInStock().ToString("F2", CultureInfo.InvariantCulture)}");
+            return Name
+                + ", $ "
+                + Price.ToString("F2", CultureInfo.InvariantCulture)
+                + ", "
+                + Quantity
+                + " unidades, Total: $ "
+                + TotalInStock().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
