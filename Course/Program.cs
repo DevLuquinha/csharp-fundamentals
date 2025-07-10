@@ -25,17 +25,10 @@ internal class Program
 
         product.AddProduct();
 
-        Console.WriteLine($"\nDados atualizados: {product.Name}," +
-            $" $ {product.Price.ToString("F2", CultureInfo.InvariantCulture)}," +
-            $" {product.Quantity} unidades," +
-            $" Total: $ {product.TotalInStock().ToString("F2", CultureInfo.InvariantCulture)}");
-
+        product.ShowUpdatedData();
 
         product.RemoveProduct();
 
-        Console.WriteLine($"\nDados atualizados: {product.Name}," +
-            $" $ {product.Price.ToString("F2", CultureInfo.InvariantCulture)}," +
-            $" {product.Quantity} unidades," +
-            $" Total: $ {product.TotalInStock().ToString("F2", CultureInfo.InvariantCulture)}");
+        product.ShowUpdatedData();
     }
 }

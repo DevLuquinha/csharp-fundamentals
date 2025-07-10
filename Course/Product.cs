@@ -29,5 +29,13 @@ namespace Course
             Console.Write("\nDigite o número de produtos a ser removidos do estoque: ");
             Quantity -= int.Parse(Console.ReadLine()!);
         }
+
+        public void ShowUpdatedData()
+        {
+            Console.WriteLine($"\nDados atualizados: {Name}," +
+           $" $ {Price.ToString("F2", CultureInfo.InvariantCulture)}," +
+           $" {Quantity} unidades," +
+           $" Total: $ {TotalInStock().ToString("F2", CultureInfo.InvariantCulture)}");
+        }
     }
 }
