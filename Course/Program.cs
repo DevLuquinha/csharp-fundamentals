@@ -22,11 +22,8 @@ internal class Program
         y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
         y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-        double p = (x.A + x.B + x.C) / 2;
-        double xArea = Math.Sqrt(p * (p - x.A) * (p - x.B) * (p - x.C));
-
-        p = (y.A + y.B + y.C) / 2;
-        double yArea = Math.Sqrt(p * (p - y.A) * (p - y.B) * (p - y.C));
+        double xArea = x.Area();
+        double yArea = y.Area();
 
         Console.WriteLine("Área de X = " + xArea.ToString("F4", CultureInfo.InvariantCulture));
         Console.WriteLine("Área de Y = " + yArea.ToString("F4", CultureInfo.InvariantCulture));
