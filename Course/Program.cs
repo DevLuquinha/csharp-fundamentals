@@ -1,25 +1,20 @@
 ﻿using Course;
+using System.Globalization;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Employee employee = new Employee();
-        
-        Console.Write("Nome: ");
-        employee.Name = Console.ReadLine();
+        Student student = new Student();
 
-        Console.Write("Salário Bruto: ");
-        employee.GrossSalary = double.Parse(Console.ReadLine()!);
+        Console.Write("Nome do aluno: ");
+        student.Name = Console.ReadLine()!;
 
-        Console.Write("Imposto: ");
-        employee.Tax = double.Parse(Console.ReadLine()!);
-
-        Console.Write($"Funcionario: {employee}");
-
-        Console.Write("\nDigite a procentagem para aumentar o salário: ");
-        employee.SalaryIncrease(double.Parse(Console.ReadLine()!));
-
-        Console.Write($"Dados Atualizados: {employee}");
+        Console.WriteLine("Digite as três notas do aluno:");
+        student.Score1 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
+        student.Score2 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
+        student.Score3 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
+        Console.Write($"NOTA FINAL = {student.FinalScore().ToString("F2")}");
+        student.IsSuccessful();
     }
 }
