@@ -1,18 +1,25 @@
 ﻿using Course;
-using System.Drawing;
-using Rectangle = Course.Rectangle;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Rectangle rec = new Course.Rectangle();
+        Employee employee = new Employee();
         
-        Console.WriteLine("Entre a largura e altura do retângulo:");
-        rec.Width = double.Parse(Console.ReadLine()!);
-        rec.Heigth = double.Parse(Console.ReadLine()!);
-        Console.WriteLine($"AREA = {rec.Area()}");
-        Console.WriteLine($"PERÍMETRO = {rec.Perimeter()}");
-        Console.WriteLine($"DIAGONAL = {rec.Diagonal()}");
+        Console.Write("Nome: ");
+        employee.Name = Console.ReadLine();
+
+        Console.Write("Salário Bruto: ");
+        employee.GrossSalary = double.Parse(Console.ReadLine()!);
+
+        Console.Write("Imposto: ");
+        employee.Tax = double.Parse(Console.ReadLine()!);
+
+        Console.Write($"Funcionario: {employee}");
+
+        Console.Write("\nDigite a procentagem para aumentar o salário: ");
+        employee.SalaryIncrease(double.Parse(Console.ReadLine()!));
+
+        Console.Write($"Dados Atualizados: {employee}");
     }
 }
