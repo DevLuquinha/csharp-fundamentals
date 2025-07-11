@@ -1,31 +1,18 @@
 ﻿using Course;
-using System.Globalization;
+using System.Drawing;
+using Rectangle = Course.Rectangle;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Product product = new Product();
-
-        Console.WriteLine("Entre os dados do produto:");
+        Rectangle rec = new Course.Rectangle();
         
-        Console.Write("Nome: ");
-        product.Name = Console.ReadLine();
-
-        Console.Write("Preço: ");
-        product.Price = double.Parse(Console.ReadLine()!);
-
-        Console.Write("Quantidade no estoque: ");
-        product.Quantity = int.Parse(Console.ReadLine()!);
-
-        Console.WriteLine($"\nDados do produto: " + product);
-
-        product.AddProduct();
-
-        Console.WriteLine($"\nDados atualizados: " + product);
-
-        product.RemoveProduct();
-
-        Console.WriteLine($"\nDados atualizados: " + product);
+        Console.WriteLine("Entre a largura e altura do retângulo:");
+        rec.Width = double.Parse(Console.ReadLine()!);
+        rec.Heigth = double.Parse(Console.ReadLine()!);
+        Console.WriteLine($"AREA = {rec.Area()}");
+        Console.WriteLine($"PERÍMETRO = {rec.Perimeter()}");
+        Console.WriteLine($"DIAGONAL = {rec.Diagonal()}");
     }
 }
