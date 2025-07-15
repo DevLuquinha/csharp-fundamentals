@@ -5,7 +5,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        
         Console.WriteLine("Entre os dados do produto:");
 
         Console.Write("Nome: ");
