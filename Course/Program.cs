@@ -1,20 +1,28 @@
-﻿using Course;
-using System.Globalization;
+﻿using System.Globalization;
 
 internal class Program
 {
+    private static double PI = 3.14;
+
     private static void Main(string[] args)
     {
-        Student student = new Student();
+        Console.WriteLine("Entre o valor do raio: ");
+        double radius = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-        Console.Write("Nome do aluno: ");
-        student.Name = Console.ReadLine()!;
+        double circ = Circumference(radius);
+        double volume = Volume(radius);
+        Console.WriteLine($"Circunferência: {circ.ToString("F2", CultureInfo.InvariantCulture)}");
+        Console.WriteLine($"Volume: {volume.ToString("F2", CultureInfo.InvariantCulture)}");
+        Console.WriteLine("Valor de PI: " + PI.ToString("F2", CultureInfo.InvariantCulture));
+    }
 
-        Console.WriteLine("Digite as três notas do aluno:");
-        student.Score1 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-        student.Score2 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-        student.Score3 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-        Console.Write($"NOTA FINAL = {student.FinalScore().ToString("F2")}");
-        student.IsSuccessful();
+    private static double Circumference(double radius)
+    {
+        return 2 * PI * radius;
+    }
+
+    private static double Volume(double radius)
+    {
+        return (4.0 / 3.0) * PI * Math.Pow(radius, 3);
     }
 }
