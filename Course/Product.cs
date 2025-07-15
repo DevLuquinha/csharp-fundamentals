@@ -13,6 +13,13 @@ namespace Course
         public double Price;
         public int Quantity;
 
+        public Product(string name, double price, int quantity)
+        {
+            Name = name;
+            Price = price;
+            Quantity = quantity;
+        }
+
         public double TotalInStock()
         {
             return Price * Quantity;

@@ -5,18 +5,19 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Product product = new Product();
-
-        Console.WriteLine("Entre os dados do produto:");
         
+        Console.WriteLine("Entre os dados do produto:");
+
         Console.Write("Nome: ");
-        product.Name = Console.ReadLine();
+        string? name = Console.ReadLine();
 
         Console.Write("Preço: ");
-        product.Price = double.Parse(Console.ReadLine()!);
+        double price = double.Parse(Console.ReadLine()!);
 
         Console.Write("Quantidade no estoque: ");
-        product.Quantity = int.Parse(Console.ReadLine()!);
+        int quantity = int.Parse(Console.ReadLine()!);
+
+        Product product = new Product(name!, price, quantity);
 
         Console.WriteLine($"\nDados do produto: " + product);
 
@@ -27,5 +28,7 @@ internal class Program
         product.RemoveProduct();
 
         Console.WriteLine($"\nDados atualizados: " + product);
+
+        Console.WriteLine(product);
     }
 }
