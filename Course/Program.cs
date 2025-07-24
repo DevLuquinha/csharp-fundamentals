@@ -13,10 +13,7 @@ internal class Program
         Console.Write("Preço: ");
         double price = double.Parse(Console.ReadLine()!);
 
-        Console.Write("Quantidade no estoque: ");
-        int quantity = int.Parse(Console.ReadLine()!);
-
-        Product product = new Product(name!, price, quantity);
+        Product product = new Product(name!, price);
 
         Console.WriteLine($"\nDados do produto: " + product);
 
