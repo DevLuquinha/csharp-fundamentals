@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using System.Reflection.Metadata.Ecma335;
+using System.Xml.Linq;
 
 namespace Course
 {
@@ -21,26 +21,18 @@ namespace Course
             _quantity = quantity;
         }
 
-        public string GetName()
+        public string Name
         {
-            return _name;
+            get { return _name; }
+            set 
+            {
+                if (!string.IsNullOrEmpty(value) && value.Length > 1)
+                    _name = value;
+            }
         }
 
-        public void SetName(string name)
-        {
-            if(!string.IsNullOrEmpty(name) && name.Length > 1)
-                _name = name;
-        }
-
-        public double GetPrice()
-        {
-            return _price;
-        }
-
-        public int GetQuantity()
-        {
-            return _quantity;
-        }
+        public double Price { get { return _price; } }
+        public int Quantity { get { return _quantity; } }
 
         public double TotalInStock()
         {
