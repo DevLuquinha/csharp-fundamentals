@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Course
 {
     internal class Product
     {
-        public string? Name;
-        public double Price;
-        public int Quantity;
+        private string? _name;
+        private double _price;
+        private int _quantity;
 
         public Product()
         {
@@ -20,42 +16,56 @@ namespace Course
 
         public Product(string name, double price, int quantity)
         {
-            Name = name;
-            Price = price;
-            Quantity = quantity;
+            _name = name;
+            _price = price;
+            _quantity = quantity;
         }
 
-        public Product(string name, double price)
+        public string GetName()
         {
-            Name = name;
-            Price = price;
-            Quantity = 5;
+            return _name;
+        }
+
+        public void SetName(string name)
+        {
+            if(!string.IsNullOrEmpty(name) && name.Length > 1)
+                _name = name;
+        }
+
+        public double GetPrice()
+        {
+            return _price;
+        }
+
+        public int GetQuantity()
+        {
+            return _quantity;
         }
 
         public double TotalInStock()
         {
-            return Price * Quantity;
+            return _price * _quantity;
         }
 
         public void AddProduct()
         {
             Console.Write("\nDigite o número de produtos a ser adicionado ao estoque: ");
-            Quantity += int.Parse(Console.ReadLine()!);
+            _quantity += int.Parse(Console.ReadLine()!);
         }
 
         public void RemoveProduct()
         {
             Console.Write("\nDigite o número de produtos a ser removidos do estoque: ");
-            Quantity -= int.Parse(Console.ReadLine()!);
+            _quantity -= int.Parse(Console.ReadLine()!);
         }
 
         public override string ToString()
         {
-            return Name
+            return _name
                 + ", $ "
-                + Price.ToString("F2", CultureInfo.InvariantCulture)
+                + _price.ToString("F2", CultureInfo.InvariantCulture)
                 + ", "
-                + Quantity
+                + _quantity
                 + " unidades, Total: $ "
                 + TotalInStock().ToString("F2", CultureInfo.InvariantCulture);
         }
