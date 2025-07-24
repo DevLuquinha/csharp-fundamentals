@@ -15,6 +15,13 @@ internal class Program
 
         Product product = new Product(name!, price);
 
+        Product product3 = new Product 
+        { 
+            Name = "TV", 
+            Price = 500, 
+            Quantity = 20 
+        };
+
         Console.WriteLine($"\nDados do produto: " + product);
 
         product.AddProduct();

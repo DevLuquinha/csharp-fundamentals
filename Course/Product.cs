@@ -13,6 +13,11 @@ namespace Course
         public double Price;
         public int Quantity;
 
+        public Product()
+        {
+
+        }
+
         public Product(string name, double price, int quantity)
         {
             Name = name;
