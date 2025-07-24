@@ -6,8 +6,20 @@ namespace Course
     internal class Product
     {
         private string? _name;
-        private double _price;
-        private int _quantity;
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && value.Length > 1)
+                    _name = value;
+            }
+        }
+
+        public double Price { get; private set; }
+
+        public int Quantity { get; private set; }
+
 
         public Product()
         {
@@ -17,47 +29,34 @@ namespace Course
         public Product(string name, double price, int quantity)
         {
             _name = name;
-            _price = price;
-            _quantity = quantity;
+            Price = price;
+            Quantity = quantity;
         }
-
-        public string Name
-        {
-            get { return _name; }
-            set 
-            {
-                if (!string.IsNullOrEmpty(value) && value.Length > 1)
-                    _name = value;
-            }
-        }
-
-        public double Price { get { return _price; } }
-        public int Quantity { get { return _quantity; } }
 
         public double TotalInStock()
         {
-            return _price * _quantity;
+            return Price * Quantity;
         }
 
         public void AddProduct()
         {
             Console.Write("\nDigite o número de produtos a ser adicionado ao estoque: ");
-            _quantity += int.Parse(Console.ReadLine()!);
+            Quantity += int.Parse(Console.ReadLine()!);
         }
 
         public void RemoveProduct()
         {
             Console.Write("\nDigite o número de produtos a ser removidos do estoque: ");
-            _quantity -= int.Parse(Console.ReadLine()!);
+            Quantity -= int.Parse(Console.ReadLine()!);
         }
 
         public override string ToString()
         {
             return _name
                 + ", $ "
-                + _price.ToString("F2", CultureInfo.InvariantCulture)
+                + Price.ToString("F2", CultureInfo.InvariantCulture)
                 + ", "
-                + _quantity
+                + Quantity
                 + " unidades, Total: $ "
                 + TotalInStock().ToString("F2", CultureInfo.InvariantCulture);
         }
