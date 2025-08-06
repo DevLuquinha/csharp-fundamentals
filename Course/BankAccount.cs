@@ -4,15 +4,20 @@ namespace Course
 {
     public class BankAccount
     {
-        public int Number { get; set; }
+        public int Number { get; private set; }
         public string Holder { get; set; }
         public double Balance { get; private set; }
         
-        public BankAccount()
+        public BankAccount(int number, string holder)
         {
-            Balance = 0;
+            Number = number;
+            Holder = holder;
         }
 
+        public BankAccount(int number, string holder, double initialDeposit) : this(number, holder)
+        {
+            Deposit(initialDeposit);
+        }
 
         public void Deposit(double value)
         {
@@ -21,7 +26,7 @@ namespace Course
 
         public void WithDrow(double value)
         {
-            Balance -= (value+5);
+            Balance -= value + 5;
         }
         public override string ToString()
         {
