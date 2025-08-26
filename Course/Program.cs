@@ -1,15 +1,14 @@
-﻿using Course;
-
-internal class Program
+﻿internal class Program
 {
     private static void Main(string[] args)
     {
-        Point p;
-        p.X = 10;
-        p.Y = 20;
+        double? x = null;
+        double? y = 10.0;
 
-        Console.WriteLine(p);
-        p = new Point();
-        Console.WriteLine(p);
+        double a = x ?? 5;
+        double b = y ?? 5;
+
+        Console.WriteLine(a);
+        Console.WriteLine(b);
     }
 }
