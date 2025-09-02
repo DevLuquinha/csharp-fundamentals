@@ -2,13 +2,13 @@
 {
     private static void Main(string[] args)
     {
-        double? x = null;
-        double? y = 10.0;
+        int n = int.Parse(Console.ReadLine());
 
-        double a = x ?? 5;
-        double b = y ?? 5;
+        double[] vect = new double[n];
 
-        Console.WriteLine(a);
-        Console.WriteLine(b);
+        for(int i = 0; i < vect.Length; i++)
+        {
+            vect[i] = double.Parse(Console.ReadLine());
+        }
     }
 }
