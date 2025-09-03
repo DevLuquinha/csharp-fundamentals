@@ -1,31 +1,45 @@
 ﻿using Course;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        int n = int.Parse(Console.ReadLine());
+        int LEN = 10;
+        Room[] rooms = new Room[LEN];
 
-        Product[] products = new Product[n];
-
-        for(int i = 0; i < n; i++)
+        for(int i = 0; i < LEN; i++)
         {
-            Product product = new Product();
-            product.Name = Console.ReadLine();
-            product.Price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            products[i] = product;
+            rooms[i] = null;
         }
 
-        double sum = 0.0;
+        Console.Write("How many rooms will be rented? ");
+        int numRooms = int.Parse(Console.ReadLine());
 
-        for (int i = 0; i < n; i++)
-            sum += products[i].Price;
+        for(int i = 0; i < numRooms; i++)
+        {
+            Console.WriteLine("\nRENT #" + (i+1));
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+            Console.Write("Room: ");
+            int id = int.Parse(Console.ReadLine());
 
-        double avg = sum / n;
+            rooms[id-1] = new Room()
+            {
+                Name = name,
+                Email = email,
+                Id = id
+            };
+        }
 
-        Console.WriteLine("AVERAGE PRICE = " + avg.ToString("F2", CultureInfo.InvariantCulture));
+        Console.WriteLine("\nBusy rooms: ");
+        for(int i = 0; i < LEN; i++)
+        {
+            if (rooms[i] != null)
+            {
+                Console.WriteLine(rooms[i].ToString());
+            }
+        }
     }
 }
