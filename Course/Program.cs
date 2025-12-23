@@ -1,51 +1,41 @@
-﻿using Course;
-
-internal class Program
+﻿internal class Program
 {
     private static void Main(string[] args)
     {
-        List<Employee> employees = new List<Employee>();
+        int dimension = int.Parse(Console.ReadLine()!);
+        double[,] matriz = new double[dimension, dimension];
 
-        Console.Write("How many employees will be registered? ");
-        int employeeAmount = int.Parse(Console.ReadLine()); 
-        
-        for(int i = 0; i < employeeAmount; i++)
+        // Iterate over lines
+        for(int i = 0; i < matriz.GetLength(0); i++)
         {
-            Employee employee = new Employee();
-            Console.WriteLine($"Employee #{i+1}:");
-            
-            Console.Write("Id: ");
-            employee.Id = int.Parse(Console.ReadLine());
-
-            Console.Write("Name: ");
-            employee.Name = Console.ReadLine();
-
-            Console.Write("Salary: ");
-            employee.Salary = double.Parse(Console.ReadLine());
-
-            employees.Add(employee);
-            Console.WriteLine();
+            // Iterate over columns
+            for(int j = 0; j < matriz.GetLength(1); j++)
+            {
+                double number = double.Parse(Console.ReadLine()!);
+                matriz[i, j] = number;
+            }
         }
 
-        Console.Write("Enter the employee id that will have salary increase: ");
-        int id = int.Parse(Console.ReadLine());
-
-        List<Employee> query = employees.FindAll(e => e.Id == id);
-        if (query.Count > 0)
+        // Show main diagonal
+        Console.WriteLine("Main Diagonal: ");
+        int negativeAmount = 0;
+        for (int i = 0; i < matriz.GetLength(0); i++)
         {
-            Console.Write("Enter the percentage: ");
-            query[0].IncreaseSalary(double.Parse(Console.ReadLine()));
-        }
-        else
-        {
-            Console.WriteLine("This id does not exist!");
+            for (int j = 0; j < matriz.GetLength(1); j++)
+            {
+                double number = matriz[i, j];
+                if (i == j)
+                {
+                    Console.Write($"{number} ");
+                }
+
+                if (number < 0)
+                {
+                    negativeAmount++;
+                }
+            }
         }
 
-        Console.WriteLine("\nUpdated list of employees:");
-        foreach (Employee employee in employees)
-        {
-            Console.WriteLine(employee.ToString());
-        }
-
+        Console.WriteLine($"\nNegative Numbers = {negativeAmount}");
     }
 }
