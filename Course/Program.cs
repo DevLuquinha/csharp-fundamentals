@@ -2,40 +2,67 @@
 {
     private static void Main(string[] args)
     {
-        int dimension = int.Parse(Console.ReadLine()!);
-        double[,] matriz = new double[dimension, dimension];
+        string[] dimensions = Console.ReadLine().Split(" ");
+        
+        int lineDim = int.Parse(dimensions[0]);
+        int coluDim = int.Parse(dimensions[1]);
+        int[,] matriz = new int[lineDim, coluDim];
 
         // Iterate over lines
         for(int i = 0; i < matriz.GetLength(0); i++)
         {
+            string[] value = Console.ReadLine().Split(" ");
+           
             // Iterate over columns
-            for(int j = 0; j < matriz.GetLength(1); j++)
+            for (int j = 0; j < matriz.GetLength(1); j++)
             {
-                double number = double.Parse(Console.ReadLine()!);
-                matriz[i, j] = number;
+                matriz[i, j] = int.Parse(value[j]);
             }
         }
 
-        // Show main diagonal
-        Console.WriteLine("Main Diagonal: ");
-        int negativeAmount = 0;
+        // Choose number to find
+        int num = int.Parse(Console.ReadLine()!);
+
+        Console.WriteLine("==============================");
+        
         for (int i = 0; i < matriz.GetLength(0); i++)
         {
             for (int j = 0; j < matriz.GetLength(1); j++)
             {
-                double number = matriz[i, j];
-                if (i == j)
+                double value = matriz[i, j];
+                
+                if (num == value)
                 {
-                    Console.Write($"{number} ");
-                }
+                    // Show the number position
+                    Console.WriteLine($"Position [{i},{j}]:");
+                    
+                    // Show the left number
+                    if(j - 1 >= 0)
+                    {
+                        Console.WriteLine($"Left: {matriz[i, j - 1]}");
+                    }
+                    
+                    // Show the right number
+                    if (j + 1 < matriz.GetLength(1))
+                    {
+                        Console.WriteLine($"Right: {matriz[i, j + 1]}");
+                    }
 
-                if (number < 0)
-                {
-                    negativeAmount++;
+                    // Show the up number
+                    if (i - 1 >= 0)
+                    {
+                        Console.WriteLine($"Up: {matriz[i - 1, j]}");
+                    }
+
+                    // Show the up number
+                    if (i + 1 < matriz.GetLength(0))
+                    {
+                        Console.WriteLine($"Down: {matriz[i + 1, j]}");
+                    }
+
+                    Console.WriteLine("==============================");
                 }
             }
         }
-
-        Console.WriteLine($"\nNegative Numbers = {negativeAmount}");
     }
 }
