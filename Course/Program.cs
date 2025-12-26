@@ -15,6 +15,9 @@ namespace Course
             };
 
             Console.WriteLine(order.ToString());
+
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+            Console.WriteLine(os);
         }
     }
 }
